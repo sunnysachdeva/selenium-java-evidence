@@ -8,6 +8,15 @@ You can be create your own Selenium evidence report through [http://jasperforge.
 Below we need to follow a few steps to create the report
 
 == Step 1 - Preparation ==
-Assure that you have installed [http://jasperforge.org/projects/ireport iReport]
+Assure that you have installed [http://jasperforge.org/projects/ireport iReport] <br>
 After installation (or weather you have it) open [http://jasperforge.org/projects/ireport iReport]
+
+=== Create report bands ===
+You need six (6) bands in your iReport file:
+* Page Header
+* Column Header
+* Detail 1
+* Page Footer
+* Summary
+
 
