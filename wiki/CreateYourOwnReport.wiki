@@ -13,10 +13,8 @@ After installation (or weather you have it) open [http://jasperforge.org/project
 
 === Create report bands ===
 You need six (6) bands in your iReport file:
-* Page Header
-* Column Header
-* Detail 1
-* Page Footer
-* Summary
-
-
+   * Page Header
+   * Column Header
+   * Detail 1
+   * Page Footer
+   * Summary
