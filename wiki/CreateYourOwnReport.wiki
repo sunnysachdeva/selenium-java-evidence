@@ -18,3 +18,22 @@ You need six (6) bands in your iReport file:
    * Detail 1
    * Page Footer
    * Summary
+
+=== Insert report parameters ===
+To use the report properly you need to put nine teen (19) parameters on the report:
+   * SEL_PROJECT: name of the project
+   * SEL_TESTER: name of the tester
+   * SEL_EXCEPTION: the exception if it appears
+   * SEL_COMPANY_LOGO: image logo of the company. null to not display
+   * SEL_CUSTOMER_LOGO: image logo of the customer. null to not display
+   * SEL_LABEL_EVINDENCE_TITLE: title of the evidence
+   * SEL_LABEL_PROJECT: name of the project label
+   * SEL_LABEL_TESTER: name of the tester label
+   * SEL_LABEL_DATE: name of the date label
+   * SEL_LABEL_STATUS: name of the status label
+   * SEL_LABEL_PASS: name of the pass status
+   * SEL_LABEL_FAILED: name of the failed status
+   * SEL_LABEL_ERROR_DETAIL: name of label report detail
+   * SEL_LABEL_FOOTER: name of the label footer
+   * SEL_LABEL_PAGE: name of the label page
+   * SEL_LABEL_COMPANY_NAME: name of company
