@@ -1,4 +1,4 @@
-<wiki:toc max_depth="1" />
+#sidebar TableOfContents
 
 Hello! Welcome to selenium-java-evidence. Fell free to give us new functionality and report the bugs that you find.
 
