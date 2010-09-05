@@ -1,4 +1,3 @@
-#summary One-sentence summary of this page.
 
 Hello! Welcome to selenium-java-evidence. Fell free to give us new functionality and report the bugs that you find.
 
