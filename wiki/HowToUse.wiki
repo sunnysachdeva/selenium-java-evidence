@@ -20,4 +20,9 @@ Booth .zip files carries the following structure:
 
 ==== Report folder ====
 The report folder contains two example report's to use with *selenium-java-evidence*.
-Weather you want to create you own report, please see the CreateYourOwnReport
+Weather you want to create you own report, please see the CreateYourOwnReport.
+
+The report that will be used is on the properties file, explained lather.
+
+==== selenium-java-evidence.jar ====
+This is the mini-framework. You must place it in you classpath, 
