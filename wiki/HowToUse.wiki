@@ -37,15 +37,15 @@ Pay attention of the image properties, that must be contain the relative image p
 
 == Step 2 - Using in your source code ==
 Always you need put these codes in your source code:
-   # import `com.googlecode.seleniumjavaevidence.report.GenerateEvidenceReport;` package
-   # import `com.googlecode.seleniumjavaevidence.report.SeleniumEvidence;` package
-   # create `private List<SeleniumEvidence> evidence`; as global attribute (the name of this attribute is at your own)
-   # create a global variable to store the exception, if there, by the following code: `String exString;`
-   # create the following instance in you *`setup()`* method: `evidence = new ArrayList<SeleniumEvidence>();`
-   # for each evidence that you want to show, put the following code: `evidence.add(new SeleniumEvidence("message", selenium.captureScreenshotToString()));`
-   # you *must* put your test code under a `try-catch` to get the exception, if there...
-     * Inside any catch, put the following code: `evidence.add(new SeleniumEvidence("fail message", selenium.captureScreenshotToString()));` and the following code: `exString = e.fillInStackTrace().getMessage();`
-     * inside the `finally`, put the following code: `GenerateEvidenceReport evidenceReport = new GenerateEvidenceReport();` and `evidenceReport.generatePDFEvidence(evidence, exString);`
+   # import {{{com.googlecode.seleniumjavaevidence.report.GenerateEvidenceReport;}}} package
+   # import {{{com.googlecode.seleniumjavaevidence.report.SeleniumEvidence;}}} package
+   # create {{{private List<SeleniumEvidence> evidence;}}} as global attribute (the name of this attribute is at your own)
+   # create a global variable to store the exception, if there, by the following code: {{{String exString;}}}
+   # create the following instance in you *{{{setup()}}}* method: {{{evidence = new ArrayList<SeleniumEvidence>();}}}
+   # for each evidence that you want to show, put the following code: {{{evidence.add(new SeleniumEvidence("message", selenium.captureScreenshotToString()));}}}
+   # you *must* put your test code under a {{{try-catch}}} to get the exception, if there...
+     * Inside any catch, put the following code: {{{evidence.add(new SeleniumEvidence("fail message", selenium.captureScreenshotToString()));}}} and the following code: {{{exString = e.fillInStackTrace().getMessage();}}}
+     * inside the {{{finally}}}, put the following code: {{{GenerateEvidenceReport evidenceReport = new GenerateEvidenceReport();}}} and {{{evidenceReport.generatePDFEvidence(evidence, exString);}}}
 
 *Bellow a template class using the selenium-java-evidence:*
 
