@@ -30,4 +30,4 @@ This is the mini-framework. You must place it in you classpath, independent if y
 This file contains the properties that will be used in report, usually the report labels.
 Pay attention of the image properties, that must be contain the relative image path.
 
-<font color="red">Don't forget: </font> If you downloaded the _with-libs_, you need to put all libraries in _lib_ folder in your classpath.
+*<font color="red">Don't forget: </font>* If you downloaded the _with-libs_, you need to put all libraries in _lib_ folder in your classpath.
