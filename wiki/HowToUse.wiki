@@ -1,4 +1,3 @@
-
 Hello! Welcome to selenium-java-evidence. Fell free to give us new functionality and report the bugs that you find.
 
 The use of this mini frameworks is peace of cake! Follow the steps bellow:
@@ -9,3 +8,16 @@ At this moment you can choose the jar file to put in classpath, we have two:
 
     * [http://selenium-java-evidence.googlecode.com/files/selenium-java-evidence-onejar.zip selenium-java-evidence-onejar.zip]
     * [http://selenium-java-evidence.googlecode.com/files/selenium-java-evidence-with-libs.zip selenium-java-evidence-with-libs.zip]
+
+The .zip with _onejar_ carries embedded libraries used to generate a report and you not needed other jar file to put in your classpath.
+
+The .zip with _with-libs_ carries the libraries used on a lib folder and you'll need put these libraries in you classpath
+
+Booth .zip files carries the following structure:
+   * report
+   * selenium-java-evidence.jar
+   * init.properties
+
+==== Report folder ====
+The report folder contains two example report's to use with *selenium-java-evidence*.
+Weather you want to create you own report, please see the CreateYourOwnReport
