@@ -12,12 +12,12 @@ Assure that you have installed [http://jasperforge.org/projects/ireport iReport]
 After installation (or weather you have it) open [http://jasperforge.org/projects/ireport iReport]
 
 === Create report bands ===
-You need six (6) bands in your iReport file:
-   * Page Header
-   * Column Header
-   * Detail 1
-   * Page Footer
-   * Summary
+To create a new report, you need put these report bands:
+   * *Page Header:* to place the images and the title
+   * *Column Header:* to place the project name, tester name, date and status. This will appear in each page created
+   * *Detail:* to place the evidence message and the image
+   * *Page Footer:* to place the footer message and the number of pages
+   * *Summary:* to place the exception, if there
 
 === Insert report parameters ===
 To use the report properly you need to put nine teen (19) parameters on the report:
@@ -37,3 +37,38 @@ To use the report properly you need to put nine teen (19) parameters on the repo
    * SEL_LABEL_FOOTER: name of the label footer
    * SEL_LABEL_PAGE: name of the label page
    * SEL_LABEL_COMPANY_NAME: name of company
+
+== Step 2 - Report Design ==
+All of the parameters will be placed directly in the report, except the image and message. Below we'll see where put each parameter.
+
+
+=== Which parameter you will place in each band? ===
+
+=== Page Header ===
+Put these parameters in this band:
+   * SEL_LABEL_COMPANY_NAME
+   * SEL_LABEL_EVINDENCE_TITLE
+   * SEL_COMPANY_LOGO
+   * SEL_CUSTOMER_LOGO
+
+*PS:* to use the logo parameters, put the image element and put the name of the parameter in _Image Expression_. E.g: Image Expression: `$P{SEL_COMPANY_LOGO}`
+
+=== Column Header ===
+Put these parameters in this band:
+   * SEL_LABEL_PROJECT
+   * SEL_LABEL_TESTER
+   * SEL_LABEL_DATE
+   * SEL_LABEL_STATUS
+   * SEL_LABEL_PASS
+   * SEL_LABEL_FAILED
+
+To the `SEL_LABEL_PASS` parameter, is recommended put a font color as green. After insert in  _Print When Expression_ the following code: `$P{SEL_EXCEPTION} == null`
+
+=== Detail ===
+
+
+=== Page Footer ===
+
+
+=== Summary ===
+
