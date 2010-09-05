@@ -5,7 +5,6 @@ The use of this mini frameworks is peace of cake! Follow the steps bellow:
 === Step 1 - Add the jar file to you Selenium project ===
 
 At this moment you can choose the jar file to put in classpath, we have two:
-
     * [http://selenium-java-evidence.googlecode.com/files/selenium-java-evidence-onejar.zip selenium-java-evidence-onejar.zip]
     * [http://selenium-java-evidence.googlecode.com/files/selenium-java-evidence-with-libs.zip selenium-java-evidence-with-libs.zip]
 
@@ -25,4 +24,8 @@ Weather you want to create you own report, please see the CreateYourOwnReport.
 The report that will be used is on the properties file, explained lather.
 
 ==== selenium-java-evidence.jar ====
-This is the mini-framework. You must place it in you classpath, 
+This is the mini-framework. You must place it in you classpath, independent if you are using the _onejar_ or _with-libs_ .zip
+
+==== init.properties ==== 
+This file contains the properties that will be used in report, usually the report labels.
+Pay attention of the image properties, that must be contain the relative image path.
