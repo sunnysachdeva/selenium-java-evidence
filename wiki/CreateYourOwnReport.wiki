@@ -62,7 +62,12 @@ Put these parameters in this band:
    * SEL_LABEL_PASS
    * SEL_LABEL_FAILED
 
-To the `SEL_LABEL_PASS` parameter, is recommended put a font color as green. After insert in  _Print When Expression_ the following code: `$P{SEL_EXCEPTION} == null`
+To the `SEL_LABEL_PASS` parameter, is recommended put a font color as *green*. After insert in  _Print When Expression_ the following code: `$P{SEL_EXCEPTION} == null`
+
+To the `SEL_LABEL_FAILED` parameter, is recommended put a font color as *red*. After insert in  _Print When Expression_ the following code: `$P{SEL_EXCEPTION}.length() > 0`
+
+Is recommended to overlap these parameters, to appears in the same position.
+
 
 === Detail ===
 
@@ -71,4 +76,3 @@ To the `SEL_LABEL_PASS` parameter, is recommended put a font color as green. Aft
 
 
 === Summary ===
-
