@@ -2,7 +2,7 @@ Hello! Welcome to selenium-java-evidence. Fell free to give us new functionality
 
 The use of this mini frameworks is peace of cake! Follow the steps bellow:
 
-=== Step 1 - Add the jar file to you Selenium project ===
+== Step 1 - Add the jar file to you Selenium project ==
 
 At this moment you can choose the jar file to put in classpath, we have two:
     * [http://selenium-java-evidence.googlecode.com/files/selenium-java-evidence-onejar.zip selenium-java-evidence-onejar.zip]
@@ -31,3 +31,15 @@ This file contains the properties that will be used in report, usually the repor
 Pay attention of the image properties, that must be contain the relative image path.
 
 *<font color="red">Don't forget: </font>* If you downloaded the _with-libs_, you need to put all libraries in _lib_ folder in your classpath.
+
+== Step 2 - Using in your source code ==
+Always you need put these codes in your source code:
+   * import `com.googlecode.seleniumjavaevidence.report.GenerateEvidenceReport;` package
+   * import `com.googlecode.seleniumjavaevidence.report.SeleniumEvidence;` package
+   * create `private List<SeleniumEvidence> evidence`; as global attribute (the name of this attribute is at your own)
+   * create a global variable to store the exception, if there, by the following code: `String exString;`
+   * create the following instance in you *`setup()`* method: `evidence = new ArrayList<SeleniumEvidence>();`
+   * for each evidence that you want to show, put the following code: `evidence.add(new SeleniumEvidence("message", selenium.captureScreenshotToString()));`
+   * You *must* put your test code under a `try-catch` to get the exception, if there...
+      * Inside any catch, put the following code: `evidence.add(new SeleniumEvidence("fail message", selenium.captureScreenshotToString()));` and the following code: `exString = e.fillInStackTrace().getMessage();`
+      * inside the `finally`, put the following code: `GenerateEvidenceReport evidenceReport = new GenerateEvidenceReport();` and `evidenceReport.generatePDFEvidence(evidence, exString);`
