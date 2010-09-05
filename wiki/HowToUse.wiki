@@ -47,8 +47,8 @@ Always you need put these codes in your source code:
 *Bellow a template class using the selenium-java-evidence:*
 
 {{{
-*import com.googlecode.seleniumjavaevidence.report.GenerateEvidenceReport;*
-*import com.googlecode.seleniumjavaevidence.selenium.SeleniumEvidence;*
+import com.googlecode.seleniumjavaevidence.report.GenerateEvidenceReport;
+import com.googlecode.seleniumjavaevidence.selenium.SeleniumEvidence;
 import com.thoughtworks.selenium.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -58,12 +58,12 @@ public class TestExample extends junit.framework.TestCase {
 
     private Selenium selenium;
     private SeleniumServer seleniumServer;
-    *private List<SeleniumEvidence> evidence;*
-    *String exString;*
+    private List<SeleniumEvidence> evidence;
+    String exString;
 
     @Override
     public void setUp() throws Exception {
-        *evidence = new ArrayList<SeleniumEvidence>();*
+        evidence = new ArrayList<SeleniumEvidence>();
         seleniumServer = new SeleniumServer();
         selenium = new DefaultSelenium("localhost", 4444, "*firefox3", "http://localhost/");
         seleniumServer.start();
@@ -79,13 +79,13 @@ public class TestExample extends junit.framework.TestCase {
     public void testLink() throws Exception {
         try {
             //your selenium test here
-            *evidence.add(new SeleniumEvidence("get evidence from here", selenium.captureScreenshotToString()));*
+            evidence.add(new SeleniumEvidence("get evidence from here", selenium.captureScreenshotToString()));
         } catch (Exception e) {
-            *evidence.add(new SeleniumEvidence("Unexpected error", selenium.captureScreenshotToString()));*
+            evidence.add(new SeleniumEvidence("Unexpected error", selenium.captureScreenshotToString()));
             exString = e.fillInStackTrace().getMessage();
         } finally {
-            *GenerateEvidenceReport evidenceReport = new GenerateEvidenceReport();*
-            *evidenceReport.generatePDFEvidence(evidence, exString);*
+            GenerateEvidenceReport evidenceReport = new GenerateEvidenceReport();
+            evidenceReport.generatePDFEvidence(evidence, exString);
         }
 
     }
