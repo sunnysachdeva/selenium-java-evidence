@@ -8,5 +8,5 @@ The use of this mini frameworks is peace of cake! Follow the steps bellow:
 
 At this moment you can choose the jar file to put in classpath, we have two:
 
-    * [http://selenium-java-evidence.googlecode.com/files/selenium-java-evidence-onejar.zip] selenium-java-evidence-onejar.zip
-    * [http://selenium-java-evidence.googlecode.com/files/selenium-java-evidence-with-libs.zip] selenium-java-evidence-with-libs.zip 
+    * [http://selenium-java-evidence.googlecode.com/files/selenium-java-evidence-onejar.zip selenium-java-evidence-onejar.zip]
+    * [http://selenium-java-evidence.googlecode.com/files/selenium-java-evidence-with-libs.zip selenium-java-evidence-with-libs.zip]
