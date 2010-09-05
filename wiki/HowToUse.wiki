@@ -91,3 +91,8 @@ public class TestExample extends junit.framework.TestCase {
     }
 }
 }}}
+
+=== Pay attention ===
+   * You must have the selenium libraries in in your classpath
+   * You must have the _report_ folder in the root folder of the application
+   * You must have the _init.properties_ file in the root folder of the application
