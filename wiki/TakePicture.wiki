@@ -4,10 +4,9 @@
 
 When we take a picture with Selenium, there are basically two ways to do that.
 It'll influence how the picture appears in the evidence report.
-
 This mini-framework uses the capture screenshot to return one string in [http://www.docjar.com/docs/api/sun/misc/BASE64Decoder.html Base64]
-
 In the descriptions above, I'll use {{{selenium}}} as a new Selenium instance
+
 
 
 == Capture the screen ==
@@ -16,11 +15,24 @@ To capture a screenshot to show us the screen we'll use the command bellow:
 selenium.captureScreenshotToString();
 }}}
 
-The image will be appears are:
+The image will be appears as:
 
 
 
 This is a good strategy if you wanna see the desktop image, but the principal (browser) can not be displayed.
 
 
+
 == Capture the entire page ==
+To capture the image content of the browser we'll use the command bellow:
+
+{{{
+selenium.captureEntirePageScreenShotToString();
+}}}
+
+This will show the image content of the browser even through it's minimized, different of the strategy above, which will display the browser image content if the browser is maximized.
+
+The image will be appears as:
+
+
+ 
