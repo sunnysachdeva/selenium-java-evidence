@@ -50,7 +50,7 @@
 				<imageExpression class="java.awt.Image"><![CDATA[$P{SEL_CUSTOMER_LOGO}]]></imageExpression>
 			</image>
 			<image hAlign="Right">
-				<reportElement x="416" y="0" width="145" height="35"/>
+				<reportElement x="416" y="0" width="137" height="35"/>
 				<imageExpression class="java.awt.Image"><![CDATA[$P{SEL_COMPANY_LOGO}]]></imageExpression>
 			</image>
 		</band>
@@ -124,18 +124,6 @@
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$P{SEL_PROJECT}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="64" y="40" width="63" height="20" forecolor="#00FF00">
-					<printWhenExpression><![CDATA[$P{SEL_EXCEPTION} == null]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="Arial" size="12" isBold="true"/>
-				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$P{SEL_LABEL_PASS}]]></textFieldExpression>
-			</textField>
-			<rectangle>
-				<reportElement mode="Opaque" x="497" y="0" width="56" height="20" forecolor="#E4E0E0" backcolor="#E4E0E0"/>
-			</rectangle>
 		</band>
 	</columnHeader>
 	<detail>

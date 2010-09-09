@@ -10,7 +10,7 @@ import sun.misc.BASE64Decoder;
  * Bean to store evidence message and image in a BASE64Decoder
  *
  * @author Elias Nogueira <elias.nogueira@gmai.com>
- * @author Sembugs <http://sembugs.blogspot.com>
+ * @author Selenium Java Evidence <http://code.google.com/p/selenium-java-evidence>
  */
 public final class SeleniumEvidence {
 

@@ -7,7 +7,7 @@ import java.util.Properties;
 /**
  * Class with shared methods and action to Selenium Evidence
  * @author Elias Nogueira <elias.nogueira@gmail.com>
- * @author Sem Bugs <http://sembugs.blogspot.com>
+ * @author Selenium Java Evidence <http://code.google.com/p/selenium-java-evidence>
  */
 public class SeleniumEvidenceUtils {
 
