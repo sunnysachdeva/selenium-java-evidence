@@ -45,7 +45,7 @@ Always you need put these codes in your source code:
    # for each evidence that you want to show, put the following code: {{{evidence.add(new SeleniumEvidence("message", selenium.captureScreenshotToString()));}}}
    # you *must* put your test code under a {{{try-catch}}} to get the exception, if there...
      * Inside any catch, put the following code: {{{evidence.add(new SeleniumEvidence("fail message", selenium.captureScreenshotToString()));}}} and the following code: {{{exString = e.fillInStackTrace().getMessage();}}}
-     * inside the {{{finally}}}, put the following code: {{{GenerateEvidenceReport evidenceReport = new GenerateEvidenceReport();}}} and {{{evidenceReport.generatePDFEvidence(evidence, exString);}}}
+     * inside the {{{finally}}}, put the following code: {{{GenerateEvidenceReport evidenceReport.generatePDFEvidence(evidence, exString);}}}
 
 *Bellow a template class using the selenium-java-evidence:*
 
@@ -87,8 +87,7 @@ public class TestExample extends junit.framework.TestCase {
             evidence.add(new SeleniumEvidence("Unexpected error", selenium.captureScreenshotToString()));
             exString = e.fillInStackTrace().getMessage();
         } finally {
-            GenerateEvidenceReport evidenceReport = new GenerateEvidenceReport();
-            evidenceReport.generatePDFEvidence(evidence, exString);
+            GenerateEvidenceReport.generatePDFEvidence(evidence, exString);
         }
 
     }
