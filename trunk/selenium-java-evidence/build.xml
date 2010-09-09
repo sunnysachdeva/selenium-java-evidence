@@ -71,7 +71,7 @@
     nbproject/build-impl.xml file. 
 
     -->
-<target name="package-for-store" depends="jar">
+    <target name="package-for-store" depends="jar">
 
         <!-- Change the value of this property to be the name of your JAR,
              minus the .jar extension. It should not have spaces.
@@ -107,4 +107,53 @@
 
         <delete file="${store.dir}/temp_final.jar"/>
     </target>
+
+    <target name="createDistributionWithLibs" depends="jar, javadoc">
+        <property name="withLibs" value="selenium-java-evidence-with-libs" />
+
+        <mkdir dir="store/${withLibs}"/>
+        <mkdir dir="store/${withLibs}/lib"/>
+        <copy todir="store/${withLibs}/lib">
+            <fileset dir="lib" includes="*" />
+        </copy>
+        <mkdir dir="store/${withLibs}/report"/>
+        <copy todir="store/${withLibs}/report">
+            <fileset dir="lib" includes="*" />
+        </copy>
+        <mkdir dir="store/${withLibs}/javadoc"/>
+        <copy todir="store/${withLibs}/javadoc">
+            <fileset dir="dist/javadoc" includes="*" />
+        </copy>
+        <copy file="properties/init.properties" todir="store/${withLibs}"/>
+        <copy file="dist/selenium-java-evidence.jar" todir="store/${withLibs}"/>
+
+        <zip destfile="store/${withLibs}.zip"  basedir="store/${withLibs}" />
+        <delete dir="store/${withLibs}" />
+
+    </target>
+
+    <!-- Create a zip file to onejar distribution -->
+    <target name="createDistributionOneJar" depends="package-for-store, jar, javadoc">
+        <property name="onejar" value="selenium-java-evidence-onejar" />
+
+        <mkdir dir="store/${onejar}"/>
+        <mkdir dir="store/${onejar}/report"/>
+        <copy todir="store/${onejar}/report">
+            <fileset dir="lib" includes="*" />
+        </copy>
+
+        <mkdir dir="store/${onejar}/javadoc"/>
+        <copy todir="store/${onejar}/javadoc">
+            <fileset dir="dist/javadoc" includes="*" />
+        </copy>
+
+        <copy file="properties/init.properties" todir="store/${onejar}"/>
+        <copy file="store/selenium-java-evidence.jar" todir="store/${onejar}"/>
+        <delete file="store/selenium-java-evidence.jar"/>
+        
+        <zip destfile="store/${onejar}.zip"  basedir="store/${onejar}" />
+        <delete dir="store/${onejar}" />
+        
+    </target>
+
 </project>
