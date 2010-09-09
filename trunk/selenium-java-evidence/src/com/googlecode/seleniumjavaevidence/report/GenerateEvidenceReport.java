@@ -21,7 +21,7 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 /**
  * Generate the test evidence in PDF file
  * @author Elias Nogueira <elias.nogueira@gmail.com>
- * @author Sem Bugs <http://sembugs.blogspot.com>
+ * @author Selenium Java Evidence <http://code.google.com/p/selenium-java-evidence>
  */
 public class GenerateEvidenceReport {
 
@@ -32,24 +32,37 @@ public class GenerateEvidenceReport {
      * @param exception exception text that are throwing by Java
      * @throws IOException if occurs any problem with the directory
      */
-    public void generatePDFEvidence(List<SeleniumEvidence> list, String reportName, String exception) throws IOException {
+    public static void generatePDFEvidence(List<SeleniumEvidence> list, String reportName, String exception) throws IOException {
         List<SeleniumEvidence> data = list;
         Properties properties = SeleniumEvidenceUtils.loadProperties();
         String project = properties.getProperty("label.projetc");
         String tester = properties.getProperty("label.tester");
-
-        createDirToEvidence(project);
-
-        String userHome = System.getProperty("user.dir") + System.getProperty("file.separator") + project + System.getProperty("file.separator");
+        String evidenceDir = System.getProperty("user.dir") + System.getProperty("file.separator") + properties.getProperty("evidence.dir") + System.getProperty("file.separator");
+        
+        createDirToEvidence(evidenceDir);
 
         try {
-            File dir = new File(userHome);
-            if (!dir.exists()) {
-                dir.mkdir();
+
+            String companyImage = properties.getProperty("image.company.path");
+            String customerImage = properties.getProperty("image.customer.path");
+
+            BufferedImage imageCompany;
+            BufferedImage imageClient;
+
+            if (companyImage.equals("null")) {
+                imageCompany = null;
+            } else {
+                imageCompany = ImageIO.read(new File(companyImage));
             }
 
-            BufferedImage imageCompany = ImageIO.read(new File(properties.getProperty("image.company.path")));
-            BufferedImage imageClient = ImageIO.read(new File(properties.getProperty("image.customer.path")));
+            if (customerImage.equals("null")) {
+                imageClient = null;
+            } else {
+                imageClient = ImageIO.read(new File(customerImage));
+            }
+
+            //BufferedImage imageCompany = ImageIO.read(new File(properties.getProperty("image.company.path")));
+            //BufferedImage imageClient = ImageIO.read(new File(properties.getProperty("image.customer.path")));
 
             Map parameters = new HashMap();
             if (exception != null) {
@@ -76,7 +89,7 @@ public class GenerateEvidenceReport {
             JRBeanCollectionDataSource datasource = new JRBeanCollectionDataSource(data);
             JasperReport jasperReport = JasperCompileManager.compileReport(properties.getProperty("evidence.file"));
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, datasource);
-            JasperExportManager.exportReportToPdfFile(jasperPrint, userHome + reportName + ".pdf");
+            JasperExportManager.exportReportToPdfFile(jasperPrint, evidenceDir + reportName + ".pdf");
 
         } catch (SecurityException ex) {
             ex.printStackTrace();
@@ -89,11 +102,11 @@ public class GenerateEvidenceReport {
      * Create a directory with the project's name
      * @param project project name
      */
-    private boolean createDirToEvidence(String project) {
+    private static boolean createDirToEvidence(String project) {
         boolean dirExists = false;
-        String userHome = System.getProperty("evidence.dir") + System.getProperty("file.separator") + project;
+        
         try {
-            File dir = new File(userHome);
+            File dir = new File(project);
             boolean exists = dir.exists();
 
             if (!exists) {

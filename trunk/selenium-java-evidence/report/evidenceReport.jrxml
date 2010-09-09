@@ -110,7 +110,7 @@
 				<textFieldExpression class="java.lang.String"><![CDATA[$P{SEL_LABEL_PASS}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="136" y="40" width="63" height="20" forecolor="#FF0000">
+				<reportElement x="63" y="40" width="63" height="20" forecolor="#FF0000">
 					<printWhenExpression><![CDATA[$P{SEL_EXCEPTION}.length() > 0]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
