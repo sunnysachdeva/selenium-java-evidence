@@ -38,5 +38,5 @@ The image will appears as:
 
 === Note ===
 If you use Internet Explorer, you must install [http://snapsie.sourceforge.net/ SnapsIE] to capture entire page screenshot.
-To learn how to install this COM object, see the webpagehttp://snapsie.sourceforge.net/ []
+To learn how to install this COM object, see the webpage [http://snapsie.sourceforge.net/]
  
