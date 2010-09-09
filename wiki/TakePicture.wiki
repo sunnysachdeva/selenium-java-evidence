@@ -1,0 +1,26 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+When we take a picture with Selenium, there are basically two ways to do that.
+It'll influence how the picture appears in the evidence report.
+
+This mini-framework uses the capture screenshot to return one string in [http://www.docjar.com/docs/api/sun/misc/BASE64Decoder.html Base64]
+
+In the descriptions above, I'll use {{{selenium}}} as a new Selenium instance
+
+
+== Capture the screen ==
+To capture a screenshot to show us the screen we'll use the command bellow:
+{{{
+selenium.captureScreenshotToString();
+}}}
+
+The image will be appears are:
+
+
+
+This is a good strategy if you wanna see the desktop image, but the principal (browser) can not be displayed.
+
+
+== Capture the entire page ==
