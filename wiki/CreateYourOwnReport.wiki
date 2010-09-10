@@ -7,7 +7,7 @@
 You can be create your own Selenium evidence report through [http://jasperforge.org/projects/ireport iReport] or [http://jasperforge.org/projects/jasperreports JasperReports].
 
 = Steps =
-Below we need to follow a few steps to create the report
+Bellow follow the steps that we must follow to create the report
 
 == Step 1 - Preparation ==
 Assure that you have installed [http://jasperforge.org/projects/ireport iReport] <br>
