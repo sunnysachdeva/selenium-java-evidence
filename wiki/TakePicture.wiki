@@ -1,3 +1,5 @@
+<wiki:toc max_depth="3" />
+
 #summary Different ways to take a screenshot.
 
 = Introduction =
