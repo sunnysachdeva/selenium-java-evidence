@@ -18,7 +18,6 @@ selenium.captureScreenshotToString();
 The image will appears as:
 http://lh5.ggpht.com/_E8k4Yrs3PtA/TIl6GC4PTXI/AAAAAAAAApo/4TDPGZ50ZUA/s800/selenium-screen-desktop.png
 
-
 This is a good strategy if you wanna see the desktop image, but the principal (browser) can not be displayed.
 Note that image refers to the entire desktop, and the window in the selenium application not complete appears because the browser were not maximized.
 
@@ -34,7 +33,9 @@ selenium.captureEntirePageScreenShotToString();
 This will show the image content of the browser even through it's minimized, different of the strategy above, which will display the browser image content if the browser is maximized.
 
 The image will appears as:
+
 http://lh4.ggpht.com/_E8k4Yrs3PtA/TIl6GlBYajI/AAAAAAAAAps/IqNg2ALSclo/s640/selenium-screen-entire-page.png
+
 
 In this case, the entire page appears even if the browser is maximized, minimized or any state
 
