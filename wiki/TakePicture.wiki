@@ -16,7 +16,7 @@ selenium.captureScreenshotToString();
 }}}
 
 The image will appears as:
-
+http://lh5.ggpht.com/_E8k4Yrs3PtA/TIl6GC4PTXI/AAAAAAAAApo/4TDPGZ50ZUA/s800/selenium-screen-desktop.png
 
 
 This is a good strategy if you wanna see the desktop image, but the principal (browser) can not be displayed.
