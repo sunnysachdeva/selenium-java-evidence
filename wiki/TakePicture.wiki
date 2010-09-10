@@ -4,15 +4,15 @@
 
 = Introduction =
 
-When we take a picture with Selenium, there are basically two ways to do that.
-It'll influence how the picture appears in the evidence report.
-This mini-framework uses the capture screenshot to return one string in [http://www.docjar.com/docs/api/sun/misc/BASE64Decoder.html Base64]
+When we take a picture with Selenium, there are basically two ways to do this.
+This will influence how the image will be presented in the evidence report.
+This library uses the capture screenshot by Selenium to return a string as [http://www.docjar.com/docs/api/sun/misc/BASE64Decoder.html Base64]
 In the descriptions above, I'll use {{{selenium}}} as a new Selenium instance
 
 
 
 == Capture the screen ==
-To capture a screenshot to show us the screen we'll use the command bellow:
+Using the following code:
 {{{
 selenium.captureScreenshotToString();
 }}}
@@ -20,23 +20,23 @@ selenium.captureScreenshotToString();
 The image will appears as:
 http://lh5.ggpht.com/_E8k4Yrs3PtA/TIl6GC4PTXI/AAAAAAAAApo/4TDPGZ50ZUA/s800/selenium-screen-desktop.png
 
-This is a good strategy if you wanna see the desktop image, but the principal (browser) can not be displayed.
+This is a good strategy if you want get desktop image, but the browser may not appear, and this will depend on the browser state (minimized or resided)
 Note that image refers to the entire desktop, and the window in the selenium application not complete appears because the browser were not maximized.
 
 
 
 == Capture the entire page ==
-To capture the image content of the browser we'll use the command bellow:
-
+Using the following code:
 {{{
 selenium.captureEntirePageScreenShotToString();
 }}}
 
-This will show the image content of the browser even through it's minimized, different of the strategy above, which will display the browser image content if the browser is maximized.
-
 The image will appears as:
 
 http://lh4.ggpht.com/_E8k4Yrs3PtA/TIl6GlBYajI/AAAAAAAAAps/IqNg2ALSclo/s640/selenium-screen-entire-page.png
+
+
+This command displays the image content even if the browser is minimized, different of the previous strategy, that displays the desktop image.
 
 
 In this case, the entire page appears even if the browser is maximized, minimized or any state
