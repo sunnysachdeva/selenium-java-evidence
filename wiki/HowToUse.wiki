@@ -1,5 +1,7 @@
 #summary This page describe how to use and create your java classes to create a evidence report.
 
+<wiki:toc max_depth="4" />
+
 = Introduction =
 Hello! Welcome to selenium-java-evidence. Fell free to give us new functionality and report the bugs that you find.
 
