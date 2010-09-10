@@ -35,6 +35,7 @@ This will show the image content of the browser even through it's minimized, dif
 
 The image will appears as:
 http://lh4.ggpht.com/_E8k4Yrs3PtA/TIl6GlBYajI/AAAAAAAAAps/IqNg2ALSclo/s640/selenium-screen-entire-page.png
+
 In this case, the entire page appears even if the browser is maximized, minimized or any state
 
 === Note ===
