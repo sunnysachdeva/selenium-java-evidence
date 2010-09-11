@@ -1,44 +1,44 @@
-#summary Esta página apresenta como criar o seu próprio relatório com esta API.
+#summary Esta pagina apresenta como criar o seu proprio relatorio com esta API.
 
-= Introdução =
-Você pode criar o seu próprio relatório através do through [http://jasperforge.org/projects/ireport iReport] e/ou do [http://jasperforge.org/projects/jasperreports JasperReports].
+= Introducao =
+Voce pode criar o seu proprio relatorio através do through [http://jasperforge.org/projects/ireport iReport] e/ou do [http://jasperforge.org/projects/jasperreports JasperReports].
 
 = Passos =
-Teremos que seguir os passos abaixo para a criação do relatório
+Teremos que seguir os passos abaixo para a criacao do relatorio
 
-== Passo 1 - Preparação ==
-Garanta que você tenha instalado o [http://jasperforge.org/projects/ireport iReport] <br>
-Dpois da instalação (ou se você já ter o [http://jasperforge.org/projects/ireport iReport] instalado), abra o [http://jasperforge.org/projects/ireport iReport]
+== Passo 1 - Preparacao ==
+Garanta que voce tenha instalado o [http://jasperforge.org/projects/ireport iReport] <br>
+Dpois da instalacao (ou se voce ja ter o [http://jasperforge.org/projects/ireport iReport] instalado), abra o [http://jasperforge.org/projects/ireport iReport]
 
-=== Criar as bandas do relatório ===
-Para criar umnovo relatório você precisa inserir as seguintes bandas:
+=== Criar as bandas do relatorio ===
+Para criar umnovo relatorio voce precisa inserir as seguintes bandas:
    * *Page Header:* para colocar as imagens e o título
-   * *Column Header:* para colocar o nome do projeto, o nome do testador, data e status. Será apresentada em cada página do relatório
-   * *Detail:* para colocar a mensagem e a imagem de evidência
-   * *Page Footer:* para colocar a mensagem de rodapé e o número das páginas
-   * *Summary:* para colocar a mensagem de exceção, se existir
+   * *Column Header:* para colocar o nome do projeto, o nome do testador, data e status. Sera apresentada em cada pagina do relatorio
+   * *Detail:* para colocar a mensagem e a imagem de evidencia
+   * *Page Footer:* para colocar a mensagem de rodapé e o numero das paginas
+   * *Summary:* para colocar a mensagem de excecao, se existir
 
-=== Inserir os parâmetros do relatório ===
-Para utilizar corretamente o relatório você precisa criar os parâmetros abaixo:
+=== Inserir os parâmetros do relatorio ===
+Para utilizar corretamente o relatorio voce precisa criar os parâmetros abaixo:
    * SEL_PROJECT: nome do projeto
    * SEL_TESTER: nome do testador
-   * SEL_EXCEPTION: a exceção se existir
+   * SEL_EXCEPTION: a excecao se existir
    * SEL_COMPANY_LOGO: logo da empresa. coloque _null_ para não exibi-la
    * SEL_CUSTOMER_LOGO: logo do cliente. coloque _null_ para não exibi-la
-   * SEL_LABEL_EVINDENCE_TITLE: título da evidência
-   * SEL_LABEL_PROJECT: rótulo do projeto
-   * SEL_LABEL_TESTER: rótulo do testador
-   * SEL_LABEL_DATE: rótulo de data
-   * SEL_LABEL_STATUS: rótulo do status
+   * SEL_LABEL_EVINDENCE_TITLE: título da evidencia
+   * SEL_LABEL_PROJECT: rotulo do projeto
+   * SEL_LABEL_TESTER: rotulo do testador
+   * SEL_LABEL_DATE: rotulo de data
+   * SEL_LABEL_STATUS: rotulo do status
    * SEL_LABEL_PASS: nome do status quando OK
    * SEL_LABEL_FAILED: nome do status quando falha
-   * SEL_LABEL_ERROR_DETAIL: rótulo do detalhe do erro
-   * SEL_LABEL_FOOTER: rótulo do rodapé
-   * SEL_LABEL_PAGE: rótulo do número de páginas
+   * SEL_LABEL_ERROR_DETAIL: rotulo do detalhe do erro
+   * SEL_LABEL_FOOTER: rotulo do rodapé
+   * SEL_LABEL_PAGE: rotulo do numero de paginas
    * SEL_LABEL_COMPANY_NAME: nome da empresa
 
-== Passo 2 - Criando o relatório ==
-Todos os parâmetros serão colocados diretamente no relatório, exceto a imagem e mensagem de evidência. Abaixo iremos ver como colocar cada parâmetro.
+== Passo 2 - Criando o relatorio ==
+Todos os parâmetros serão colocados diretamente no relatorio, exceto a imagem e mensagem de evidencia. Abaixo iremos ver como colocar cada parâmetro.
 
 === Qual parâmetro colocar em cada banda ===
 
@@ -61,33 +61,33 @@ Coloque os parâmetros abaixo nesta banda:
    * SEL_LABEL_PASS
    * SEL_LABEL_FAILED
 
-Para o parâmetro `SEL_LABEL_PASS` é recomendado que a cor da fonte seja *verde*. Depois coloque na propriedade _Print When Expression_ o seguinte código: `$P{SEL_EXCEPTION} == null`
+Para o parâmetro `SEL_LABEL_PASS` é recomendado que a cor da fonte seja *verde*. Depois coloque na propriedade _Print When Expression_ o seguinte codigo: `$P{SEL_EXCEPTION} == null`
 
-Para o parâmetro `SEL_LABEL_FAILED` é recomendado que a cor da fonte seja *vermelho*. Depois coloque na propriedade _Print When Expression_ o seguinte código: `$P{SEL_EXCEPTION} == null`
+Para o parâmetro `SEL_LABEL_FAILED` é recomendado que a cor da fonte seja *vermelho*. Depois coloque na propriedade _Print When Expression_ o seguinte codigo: `$P{SEL_EXCEPTION} == null`
 
-É recomendado que estes parâmetros estejam sobrepostos, para aparecer na mesma posição
+É recomendado que estes parâmetros estejam sobrepostos, para aparecer na mesma posicao
 
 === Detail ===
-Nesta banda você deve colocar dois elementos _Text Fileds_ ao invés de parâmetros. Depois disso no parâmetro _Text Field Expression_ coloque os nome abaixo, um para cada text field
+Nesta banda voce deve colocar dois elementos _Text Fileds_ ao invés de parâmetros. Depois disso no parâmetro _Text Field Expression_ coloque os nome abaixo, um para cada text field
    * $F{sel_message}
    * $F{sel_image}
 
-Isso é necessário porque estas informações são textos não estáticos.
+Isso é necessario porque estas informações são textos não estaticos.
 
 === Page Footer ===
 Coloque os parâmetros abaixo nesta banda:
    * SEL_LABEL_FOOTER
    * SEL_LABEL_PAGE
 
-Esta banda irá apresentar a mensagem de rodapé e o número de páginas do relatório.
-Para colocar o número de página igual ao do exemplo, coloque no _Text Field_ a seguinte expressão: `$P{SEL_LABEL_PAGE}+ " " + $V{PAGE_NUMBER}+" de" + " " + $V{PAGE_NUMBER}`
-Será apresentado algo como: _Página 1 de 2_
+Esta banda ira apresentar a mensagem de rodapé e o numero de paginas do relatorio.
+Para colocar o numero de pagina igual ao do exemplo, coloque no _Text Field_ a seguinte expressão: `$P{SEL_LABEL_PAGE}+ " " + $V{PAGE_NUMBER}+" de" + " " + $V{PAGE_NUMBER}`
+Sera apresentado algo como: _Pagina 1 de 2_
 
 === Summary ===
-Primeiramente, você precisa colocar uma expressão nesta banda. Esta banda irá apresentar a mensagem de exeção, se existir. Clique nesta banda e coloque a seguinte expressão na propriedade _Print When Expression_: `$P{SEL_EXCEPTION}.length() > 0`
+Primeiramente, voce precisa colocar uma expressão nesta banda. Esta banda ira apresentar a mensagem de execao, se existir. Clique nesta banda e coloque a seguinte expressão na propriedade _Print When Expression_: `$P{SEL_EXCEPTION}.length() > 0`
 
 Coloque estes parâmetros nesta banda:
    * SEL_LABEL_ERROR_DETAIL
    * SEL_EXCEPTION
 
-Isso é tudo, agora você tem um relatório customizado. Presta atenção nos formatos, fontes e cores e qualquer outra coisa que você deseja colocar/formatar no relatório.
+Isso é tudo, agora voce tem um relatorio customizado. Presta atencao nos formatos, fontes e cores e qualquer outra coisa que voce deseja colocar/formatar no relatorio.
