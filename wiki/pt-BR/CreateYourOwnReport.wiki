@@ -12,7 +12,7 @@ Dpois da instalacao (ou se voce ja ter o [http://jasperforge.org/projects/irepor
 
 === Criar as bandas do relatorio ===
 Para criar umnovo relatorio voce precisa inserir as seguintes bandas:
-   * *Page Header:* para colocar as imagens e o título
+   * *Page Header:* para colocar as imagens e o titulo
    * *Column Header:* para colocar o nome do projeto, o nome do testador, data e status. Sera apresentada em cada pagina do relatorio
    * *Detail:* para colocar a mensagem e a imagem de evidencia
    * *Page Footer:* para colocar a mensagem de rodape e o numero das paginas
@@ -25,7 +25,7 @@ Para utilizar corretamente o relatorio voce precisa criar os parametros abaixo:
    * SEL_EXCEPTION: a excecao se existir
    * SEL_COMPANY_LOGO: logo da empresa. coloque _null_ para nao exibi-la
    * SEL_CUSTOMER_LOGO: logo do cliente. coloque _null_ para nao exibi-la
-   * SEL_LABEL_EVINDENCE_TITLE: título da evidencia
+   * SEL_LABEL_EVINDENCE_TITLE: titulo da evidencia
    * SEL_LABEL_PROJECT: rotulo do projeto
    * SEL_LABEL_TESTER: rotulo do testador
    * SEL_LABEL_DATE: rotulo de data
@@ -61,7 +61,7 @@ Coloque os parametros abaixo nesta banda:
    * SEL_LABEL_PASS
    * SEL_LABEL_FAILED
 
-Para o parametro `SEL_LABEL_PASS` e recomendado que a cor da fonte seja *verde*. Depois coloque na propriedade _Print When Expression_ o seguinte codigo: `$P{SEL_EXCEPTION} == null`
+Para o parametro `SEL_LABEL_PASS` e recomendado que a cor da fonte seja <font coler="green">*verde*</font>. Depois coloque na propriedade _Print When Expression_ o seguinte codigo: `$P{SEL_EXCEPTION} == null`
 
 Para o parametro `SEL_LABEL_FAILED` e recomendado que a cor da fonte seja *vermelho*. Depois coloque na propriedade _Print When Expression_ o seguinte codigo: `$P{SEL_EXCEPTION} == null`
 
