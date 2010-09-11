@@ -1,7 +1,7 @@
 #summary Esta pagina apresenta como criar o seu proprio relatorio com esta API.
 
 = Introducao =
-Voce pode criar o seu proprio relatorio através do through [http://jasperforge.org/projects/ireport iReport] e/ou do [http://jasperforge.org/projects/jasperreports JasperReports].
+Voce pode criar o seu proprio relatorio atraves do [http://jasperforge.org/projects/ireport iReport] e/ou do [http://jasperforge.org/projects/jasperreports JasperReports].
 
 = Passos =
 Teremos que seguir os passos abaixo para a criacao do relatorio
@@ -15,16 +15,16 @@ Para criar umnovo relatorio voce precisa inserir as seguintes bandas:
    * *Page Header:* para colocar as imagens e o título
    * *Column Header:* para colocar o nome do projeto, o nome do testador, data e status. Sera apresentada em cada pagina do relatorio
    * *Detail:* para colocar a mensagem e a imagem de evidencia
-   * *Page Footer:* para colocar a mensagem de rodapé e o numero das paginas
+   * *Page Footer:* para colocar a mensagem de rodape e o numero das paginas
    * *Summary:* para colocar a mensagem de excecao, se existir
 
-=== Inserir os parâmetros do relatorio ===
-Para utilizar corretamente o relatorio voce precisa criar os parâmetros abaixo:
+=== Inserir os parametros do relatorio ===
+Para utilizar corretamente o relatorio voce precisa criar os parametros abaixo:
    * SEL_PROJECT: nome do projeto
    * SEL_TESTER: nome do testador
    * SEL_EXCEPTION: a excecao se existir
-   * SEL_COMPANY_LOGO: logo da empresa. coloque _null_ para não exibi-la
-   * SEL_CUSTOMER_LOGO: logo do cliente. coloque _null_ para não exibi-la
+   * SEL_COMPANY_LOGO: logo da empresa. coloque _null_ para nao exibi-la
+   * SEL_CUSTOMER_LOGO: logo do cliente. coloque _null_ para nao exibi-la
    * SEL_LABEL_EVINDENCE_TITLE: título da evidencia
    * SEL_LABEL_PROJECT: rotulo do projeto
    * SEL_LABEL_TESTER: rotulo do testador
@@ -33,27 +33,27 @@ Para utilizar corretamente o relatorio voce precisa criar os parâmetros abaixo:
    * SEL_LABEL_PASS: nome do status quando OK
    * SEL_LABEL_FAILED: nome do status quando falha
    * SEL_LABEL_ERROR_DETAIL: rotulo do detalhe do erro
-   * SEL_LABEL_FOOTER: rotulo do rodapé
+   * SEL_LABEL_FOOTER: rotulo do rodape
    * SEL_LABEL_PAGE: rotulo do numero de paginas
    * SEL_LABEL_COMPANY_NAME: nome da empresa
 
 == Passo 2 - Criando o relatorio ==
-Todos os parâmetros serão colocados diretamente no relatorio, exceto a imagem e mensagem de evidencia. Abaixo iremos ver como colocar cada parâmetro.
+Todos os parametros serao colocados diretamente no relatorio, exceto a imagem e mensagem de evidencia. Abaixo iremos ver como colocar cada parametro.
 
-=== Qual parâmetro colocar em cada banda ===
+=== Qual parametro colocar em cada banda ===
 
 === Page Header ===
-Coloque os parâmetros abaixo nesta banda:
+Coloque os parametros abaixo nesta banda:
    * SEL_LABEL_COMPANY_NAME
    * SEL_LABEL_EVINDENCE_TITLE
    * SEL_COMPANY_LOGO
    * SEL_CUSTOMER_LOGO
 
-*PS:* para utilizar o parâmetro de logo (imagem) coloque um elemento do tipo _image_ e coloque o nome do parâmetro em _Image Expression_. Eexmplo: Image Expression: `$P{SEL_COMPANY_LOGO}`
+*PS:* para utilizar o parametro de logo (imagem) coloque um elemento do tipo _image_ e coloque o nome do parametro em _Image Expression_. Eexmplo: Image Expression: `$P{SEL_COMPANY_LOGO}`
 to use the logo parameters, put the image element and put the name of the parameter in _Image Expression_. E.g: Image Expression: `$P{SEL_COMPANY_LOGO}`
 
 === Column Header ===
-Coloque os parâmetros abaixo nesta banda:
+Coloque os parametros abaixo nesta banda:
    * SEL_LABEL_PROJECT
    * SEL_LABEL_TESTER
    * SEL_LABEL_DATE
@@ -61,33 +61,33 @@ Coloque os parâmetros abaixo nesta banda:
    * SEL_LABEL_PASS
    * SEL_LABEL_FAILED
 
-Para o parâmetro `SEL_LABEL_PASS` é recomendado que a cor da fonte seja *verde*. Depois coloque na propriedade _Print When Expression_ o seguinte codigo: `$P{SEL_EXCEPTION} == null`
+Para o parametro `SEL_LABEL_PASS` e recomendado que a cor da fonte seja *verde*. Depois coloque na propriedade _Print When Expression_ o seguinte codigo: `$P{SEL_EXCEPTION} == null`
 
-Para o parâmetro `SEL_LABEL_FAILED` é recomendado que a cor da fonte seja *vermelho*. Depois coloque na propriedade _Print When Expression_ o seguinte codigo: `$P{SEL_EXCEPTION} == null`
+Para o parametro `SEL_LABEL_FAILED` e recomendado que a cor da fonte seja *vermelho*. Depois coloque na propriedade _Print When Expression_ o seguinte codigo: `$P{SEL_EXCEPTION} == null`
 
-É recomendado que estes parâmetros estejam sobrepostos, para aparecer na mesma posicao
+e recomendado que estes parametros estejam sobrepostos, para aparecer na mesma posicao
 
 === Detail ===
-Nesta banda voce deve colocar dois elementos _Text Fileds_ ao invés de parâmetros. Depois disso no parâmetro _Text Field Expression_ coloque os nome abaixo, um para cada text field
+Nesta banda voce deve colocar dois elementos _Text Fileds_ ao inves de parametros. Depois disso no parametro _Text Field Expression_ coloque os nome abaixo, um para cada text field
    * $F{sel_message}
    * $F{sel_image}
 
-Isso é necessario porque estas informações são textos não estaticos.
+Isso e necessario porque estas informacoes sao textos nao estaticos.
 
 === Page Footer ===
-Coloque os parâmetros abaixo nesta banda:
+Coloque os parametros abaixo nesta banda:
    * SEL_LABEL_FOOTER
    * SEL_LABEL_PAGE
 
-Esta banda ira apresentar a mensagem de rodapé e o numero de paginas do relatorio.
-Para colocar o numero de pagina igual ao do exemplo, coloque no _Text Field_ a seguinte expressão: `$P{SEL_LABEL_PAGE}+ " " + $V{PAGE_NUMBER}+" de" + " " + $V{PAGE_NUMBER}`
+Esta banda ira apresentar a mensagem de rodape e o numero de paginas do relatorio.
+Para colocar o numero de pagina igual ao do exemplo, coloque no _Text Field_ a seguinte expressao: `$P{SEL_LABEL_PAGE}+ " " + $V{PAGE_NUMBER}+" de" + " " + $V{PAGE_NUMBER}`
 Sera apresentado algo como: _Pagina 1 de 2_
 
 === Summary ===
-Primeiramente, voce precisa colocar uma expressão nesta banda. Esta banda ira apresentar a mensagem de execao, se existir. Clique nesta banda e coloque a seguinte expressão na propriedade _Print When Expression_: `$P{SEL_EXCEPTION}.length() > 0`
+Primeiramente, voce precisa colocar uma expressao nesta banda. Esta banda ira apresentar a mensagem de execao, se existir. Clique nesta banda e coloque a seguinte expressao na propriedade _Print When Expression_: `$P{SEL_EXCEPTION}.length() > 0`
 
-Coloque estes parâmetros nesta banda:
+Coloque estes parametros nesta banda:
    * SEL_LABEL_ERROR_DETAIL
    * SEL_EXCEPTION
 
-Isso é tudo, agora voce tem um relatorio customizado. Presta atencao nos formatos, fontes e cores e qualquer outra coisa que voce deseja colocar/formatar no relatorio.
+Isso e tudo, agora voce tem um relatorio customizado. Presta atencao nos formatos, fontes e cores e qualquer outra coisa que voce deseja colocar/formatar no relatorio.
