@@ -84,7 +84,7 @@ Put these parameters in this band:
    * SEL_LABEL_PAGE
 
 This band will display the footer message and the number of pages of the report. 
-To put in the same example of the report example on this, put a _Text Field_ and the following expression: `$P{SEL_LABEL_PAGE}+ " " + $V{PAGE_NUMBER}+" de" + " " + $V{PAGE_NUMBER}`
+To put in the same example of the report example, put a _Text Field_ and the following expression: `$P{SEL_LABEL_PAGE}+ " " + $V{PAGE_NUMBER}+" de" + " " + $V{PAGE_NUMBER}`
 This will displays something like this: _Page 1 of 2_
 
 === Summary ===
