@@ -1,60 +1,59 @@
-#summary This page describe how to create your own selenium evidence report.
+#summary Esta página apresenta como criar o seu próprio relatório com esta API.
 
-= Introduction =
-Teste de portugues
-You can be create your own Selenium evidence report through [http://jasperforge.org/projects/ireport iReport] or [http://jasperforge.org/projects/jasperreports JasperReports].
+= Introdução =
+Você pode criar o seu próprio relatório através do through [http://jasperforge.org/projects/ireport iReport] e/ou do [http://jasperforge.org/projects/jasperreports JasperReports].
 
-= Steps =
-Below we need to follow a few steps to create the report
+= Passos =
+Teremos que seguir os passos abaixo para a criação do relatório
 
-== Step 1 - Preparation ==
-Assure that you have installed [http://jasperforge.org/projects/ireport iReport] <br>
-After installation (or weather you have it) open [http://jasperforge.org/projects/ireport iReport]
+== Passo 1 - Preparação ==
+Garanta que você tenha instalado o [http://jasperforge.org/projects/ireport iReport] <br>
+Dpois da instalação (ou se você já ter o [http://jasperforge.org/projects/ireport iReport] instalado), abra o [http://jasperforge.org/projects/ireport iReport]
 
-=== Create report bands ===
-To create a new report, you need put these report bands:
-   * *Page Header:* to place the images and the title
-   * *Column Header:* to place the project name, tester name, date and status. This will appear in each page created
-   * *Detail:* to place the evidence message and the image
-   * *Page Footer:* to place the footer message and the number of pages
-   * *Summary:* to place the exception, if there
+=== Criar as bandas do relatório ===
+Para criar umnovo relatório você precisa inserir as seguintes bandas:
+   * *Page Header:* para colocar as imagens e o título
+   * *Column Header:* para colocar o nome do projeto, o nome do testador, data e status. Será apresentada em cada página do relatório
+   * *Detail:* para colocar a mensagem e a imagem de evidência
+   * *Page Footer:* para colocar a mensagem de rodapé e o número das páginas
+   * *Summary:* para colocar a mensagem de exceção, se existir
 
-=== Insert report parameters ===
-To use the report properly you need to put nine teen (19) parameters on the report:
-   * SEL_PROJECT: name of the project
-   * SEL_TESTER: name of the tester
-   * SEL_EXCEPTION: the exception if it appears
-   * SEL_COMPANY_LOGO: image logo of the company. null to not display
-   * SEL_CUSTOMER_LOGO: image logo of the customer. null to not display
-   * SEL_LABEL_EVINDENCE_TITLE: title of the evidence
-   * SEL_LABEL_PROJECT: name of the project label
-   * SEL_LABEL_TESTER: name of the tester label
-   * SEL_LABEL_DATE: name of the date label
-   * SEL_LABEL_STATUS: name of the status label
-   * SEL_LABEL_PASS: name of the pass status
-   * SEL_LABEL_FAILED: name of the failed status
-   * SEL_LABEL_ERROR_DETAIL: name of label report detail
-   * SEL_LABEL_FOOTER: name of the label footer
-   * SEL_LABEL_PAGE: name of the label page
-   * SEL_LABEL_COMPANY_NAME: name of company
+=== Inserir os parâmetros do relatório ===
+Para utilizar corretamente o relatório você precisa criar os parâmetros abaixo:
+   * SEL_PROJECT: nome do projeto
+   * SEL_TESTER: nome do testador
+   * SEL_EXCEPTION: a exceção se existir
+   * SEL_COMPANY_LOGO: logo da empresa. coloque _null_ para não exibi-la
+   * SEL_CUSTOMER_LOGO: logo do cliente. coloque _null_ para não exibi-la
+   * SEL_LABEL_EVINDENCE_TITLE: título da evidência
+   * SEL_LABEL_PROJECT: rótulo do projeto
+   * SEL_LABEL_TESTER: rótulo do testador
+   * SEL_LABEL_DATE: rótulo de data
+   * SEL_LABEL_STATUS: rótulo do status
+   * SEL_LABEL_PASS: nome do status quando OK
+   * SEL_LABEL_FAILED: nome do status quando falha
+   * SEL_LABEL_ERROR_DETAIL: rótulo do detalhe do erro
+   * SEL_LABEL_FOOTER: rótulo do rodapé
+   * SEL_LABEL_PAGE: rótulo do número de páginas
+   * SEL_LABEL_COMPANY_NAME: nome da empresa
 
-== Step 2 - Report Design ==
-All of the parameters will be placed directly in the report, except the image and message. Below we'll see where put each parameter.
+== Passo 2 - Criando o relatório ==
+Todos os parâmetros serão colocados diretamente no relatório, exceto a imagem e mensagem de evidência. Abaixo iremos ver como colocar cada parâmetro.
 
-
-=== Which parameter you will place in each band? ===
+=== Qual parâmetro colocar em cada banda ===
 
 === Page Header ===
-Put these parameters in this band:
+Coloque os parâmetros abaixo nesta banda:
    * SEL_LABEL_COMPANY_NAME
    * SEL_LABEL_EVINDENCE_TITLE
    * SEL_COMPANY_LOGO
    * SEL_CUSTOMER_LOGO
 
-*PS:* to use the logo parameters, put the image element and put the name of the parameter in _Image Expression_. E.g: Image Expression: `$P{SEL_COMPANY_LOGO}`
+*PS:* para utilizar o parâmetro de logo (imagem) coloque um elemento do tipo _image_ e coloque o nome do parâmetro em _Image Expression_. Eexmplo: Image Expression: `$P{SEL_COMPANY_LOGO}`
+to use the logo parameters, put the image element and put the name of the parameter in _Image Expression_. E.g: Image Expression: `$P{SEL_COMPANY_LOGO}`
 
 === Column Header ===
-Put these parameters in this band:
+Coloque os parâmetros abaixo nesta banda:
    * SEL_LABEL_PROJECT
    * SEL_LABEL_TESTER
    * SEL_LABEL_DATE
@@ -62,34 +61,33 @@ Put these parameters in this band:
    * SEL_LABEL_PASS
    * SEL_LABEL_FAILED
 
-To the `SEL_LABEL_PASS` parameter, is recommended put a font color as *green*. After insert in  _Print When Expression_ the following code: `$P{SEL_EXCEPTION} == null`
+Para o parâmetro `SEL_LABEL_PASS` é recomendado que a cor da fonte seja *verde*. Depois coloque na propriedade _Print When Expression_ o seguinte código: `$P{SEL_EXCEPTION} == null`
 
-To the `SEL_LABEL_FAILED` parameter, is recommended put a font color as *red*. After insert in  _Print When Expression_ the following code: `$P{SEL_EXCEPTION}.length() > 0`
+Para o parâmetro `SEL_LABEL_FAILED` é recomendado que a cor da fonte seja *vermelho*. Depois coloque na propriedade _Print When Expression_ o seguinte código: `$P{SEL_EXCEPTION} == null`
 
-Is recommended to overlap these parameters, to appears in the same position.
-
+É recomendado que estes parâmetros estejam sobrepostos, para aparecer na mesma posição
 
 === Detail ===
-In this band you need put two _Text Fileds_ elements instead of a parameters. After that you put these elements, in the _Text Field Expression_ put the names bellow, one for each text field:
+Nesta banda você deve colocar dois elementos _Text Fileds_ ao invés de parâmetros. Depois disso no parâmetro _Text Field Expression_ coloque os nome abaixo, um para cada text field
    * $F{sel_message}
    * $F{sel_image}
 
-This is necessary because these information's are non statical text's.
+Isso é necessário porque estas informações são textos não estáticos.
 
 === Page Footer ===
-Put these parameters in this band:
+Coloque os parâmetros abaixo nesta banda:
    * SEL_LABEL_FOOTER
    * SEL_LABEL_PAGE
 
-This band will display the footer message and the number of pages of the report. 
-To put in the same example of the report example on this, put a _Text Field_ and the following expression: `$P{SEL_LABEL_PAGE}+ " " + $V{PAGE_NUMBER}+" de" + " " + $V{PAGE_NUMBER}`
-This will displays something like this: _Page 1 of 2_
+Esta banda irá apresentar a mensagem de rodapé e o número de páginas do relatório.
+Para colocar o número de página igual ao do exemplo, coloque no _Text Field_ a seguinte expressão: `$P{SEL_LABEL_PAGE}+ " " + $V{PAGE_NUMBER}+" de" + " " + $V{PAGE_NUMBER}`
+Será apresentado algo como: _Página 1 de 2_
 
 === Summary ===
-Fist of all, you need put one expression on this band. This band will appears the exception message, if there. Click in this band and put the following expression in _Print When Expression_: `$P{SEL_EXCEPTION}.length() > 0`
+Primeiramente, você precisa colocar uma expressão nesta banda. Esta banda irá apresentar a mensagem de exeção, se existir. Clique nesta banda e coloque a seguinte expressão na propriedade _Print When Expression_: `$P{SEL_EXCEPTION}.length() > 0`
 
-Put these parameters in this band:
+Coloque estes parâmetros nesta banda:
    * SEL_LABEL_ERROR_DETAIL
    * SEL_EXCEPTION
 
-That's all, now you have a custom report. Pay attention on the formats, fonts, color and others things that you wanna put on report.
+Isso é tudo, agora você tem um relatório customizado. Presta atenção nos formatos, fontes e cores e qualquer outra coisa que você deseja colocar/formatar no relatório.
