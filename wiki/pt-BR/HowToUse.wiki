@@ -36,7 +36,7 @@ Este arquivo contem as propriedades utilizadas no relatorio, em sua maioria os r
 Preste atencao nas propriedades de imagem, se voce as utilizar vai precisar colocar o caminho relativo a sua aplicacao, tomando como o diretorio inicial o da aplicacao.
 Se voce nao deseja utilizar a(s) imagem(ns) no relatorio, coloque o valor _null_
 
-*<font color="red">Don't forget: </font>* Se voce baixar o a .zip com _with-libs_, voce precisara colocar todas as bibliotecas da pasta _lib_ no seu classpath.
+*<font color="red">DNão esqueca: </font>* Se voce baixar o a .zip com _with-libs_, voce precisara colocar todas as bibliotecas da pasta _lib_ no seu classpath.
 
 == Passo 2 - Usando a API no seu codigo ==
 Voce sempre precisara colocar os codigos abaixo no seu codigo-fonte (nao necessariamente nesta ordem, mas precisara de todos):
