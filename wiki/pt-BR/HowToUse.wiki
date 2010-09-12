@@ -1,53 +1,56 @@
-#summary This page describe how to use and create your java classes to create a evidence report.
+#summary Esta pagina descreve como utilizar e criar suas proprias classes para criar um relatorio de evidencia.
 
-= Introduction =
-Hello! Welcome to selenium-java-evidence. Fell free to give us new functionality and report the bugs that you find.
+<wiki:toc max_depth="4" />
 
-The use of this mini frameworks is peace of cake! Follow the steps bellow:
+= Introducao =
+Ola! Bem vindo ao selenium-java-evidence. Sinta-se a vontade para nos informar sobre qualquer funcionalidade que voce deseja ou de qualquer bug que voce encontrar.
 
-== Step 1 - Add the jar file to you Selenium project ==
+O uso dessa API e muito facil, basta seguir os passos abaixo:
 
-At this moment you can choose the jar file to put in classpath, we have two:
+== Passo 1 - Adicione o arquivo jar no seu projeto ==
+
+Neste momento voce pode escolher qual arquivo jar colocar no seu classpath, existem dois:
     * [http://selenium-java-evidence.googlecode.com/files/selenium-java-evidence-onejar.zip selenium-java-evidence-onejar.zip]
     * [http://selenium-java-evidence.googlecode.com/files/selenium-java-evidence-with-libs.zip selenium-java-evidence-with-libs.zip]
 
-The .zip with _onejar_ carries embedded libraries used to generate a report and you not needed other jar file to put in your classpath.
+O .zip com _onejar_ traz todas as bibliotecas utilizadas pela API embutidas em um unico arquivo jar. Com ele voce nao precisara utilizar outros arquivos .jar, somente um.
 
-The .zip with _with-libs_ carries the libraries used on a lib folder and you'll need put these libraries in you classpath
+O .zip com _with-libs_ traz todas as bibliotecas utilizadas em uma pasta separada. Voce precisara colocar estas bibliotecas no seu classpath, alem do arquivo desta API.
 
-Booth .zip files carries the following structure:
+Ambos arquivos trazem a seguinte estrutura
    * report
    * selenium-java-evidence.jar
    * init.properties
 
-==== Report folder ====
-The report folder contains two example report's to use with *selenium-java-evidence*.
-Weather you want to create you own report, please see the CreateYourOwnReport.
+==== Pasta _report_ ====
+A pasta _report_ contem dois exemplos de relatorios para voce utilizar com esta API
+Se voce quiser criar o seu proprio relatorio, por favor vizualize a pagina CreateYourOwnReport
 
-The report that will be used is on the properties file, explained lather.
+O relatorio que sera utilizado no arquivo de propriedades sera explicado depois.
 
 ==== selenium-java-evidence.jar ====
-This is the mini-framework. You must place it in you classpath, independent if you are using the _onejar_ or _with-libs_ .zip
+Esta e a biblioteca da API. Voce precisa coloca-la no seu classpath, independente se voce estiver baixado o zip _onejar_ ou _with-libs_
 
 ==== init.properties ==== 
-This file contains the properties that will be used in report, usually the report labels.
-Pay attention of the image properties, that must be contain the relative image path.
+Este arquivo contem as propriedades utilizadas no relatorio, em sua maioria os rotulos do relatorio.
+Preste atencao nas propriedades de imagem, se voce as utilizar vai precisar colocar o caminho relativo a sua aplicacao, tomando como o diretorio inicial o da aplicacao.
+Se voce nao deseja utilizar a(s) imagem(ns) no relatorio, coloque o valor _null_
 
-*<font color="red">Don't forget: </font>* If you downloaded the _with-libs_, you need to put all libraries in _lib_ folder in your classpath.
+*<font color="red">Don't forget: </font>* Se voce baixar o a .zip com _with-libs_, voce precisara colocar todas as bibliotecas da pasta _lib_ no seu classpath.
 
-== Step 2 - Using in your source code ==
-Always you need put these codes in your source code:
-   # import {{{com.googlecode.seleniumjavaevidence.report.GenerateEvidenceReport;}}} package
-   # import {{{com.googlecode.seleniumjavaevidence.report.SeleniumEvidence;}}} package
-   # create {{{private List<SeleniumEvidence> evidence;}}} as global attribute (the name of this attribute is at your own)
-   # create a global variable to store the exception, if there, by the following code: {{{String exString;}}}
-   # create the following instance in you *{{{setup()}}}* method: {{{evidence = new ArrayList<SeleniumEvidence>();}}}
-   # for each evidence that you want to show, put the following code: {{{evidence.add(new SeleniumEvidence("message", selenium.captureScreenshotToString()));}}}
-   # you *must* put your test code under a {{{try-catch}}} to get the exception, if there...
-     * Inside any catch, put the following code: {{{evidence.add(new SeleniumEvidence("fail message", selenium.captureScreenshotToString()));}}} and the following code: {{{exString = e.fillInStackTrace().getMessage();}}}
-     * inside the {{{finally}}}, put the following code: {{{GenerateEvidenceReport evidenceReport.generatePDFEvidence(evidence, exString);}}}
+== Passo 2 - Usando a API no seu codigo ==
+Voce sempre precisara colocar os codigos abaixo no seu codigo-fonte (nao necessariamente nesta ordem, mas precisara de todos):
+   # importar o pacote {{{com.googlecode.seleniumjavaevidence.report.GenerateEvidenceReport;}}}
+   # importar o pacote {{{com.googlecode.seleniumjavaevidence.report.SeleniumEvidence;}}}
+   # criar uma variavel global {{{private List<SeleniumEvidence> evidence;}}} (voce pode escolher qualquer nome para ela ao inves de _evidence_)
+   # criar uma variavel global para guardar a excecao se existir, atraves do codigo {{{String exString;}}}
+   # criar a seguinte instancia no seu metodo *{{{setup()}}}*: {{{evidence = new ArrayList<SeleniumEvidence>();}}}
+   # para cada evidencia que voce encontrar, coloque a seguinte linha de codigo: {{{evidence.add(new SeleniumEvidence("message", selenium.captureScreenshotToString()));}}}
+   # voce precisa colocar todo o codigo sobre um bloco {{{try-catch}}} para poder pegar a excecao e capturar a imagem de erro ou do ultimo passo executado...
+     * coloque dentro do bloco {{{catch}}} o seguinte codigo {{{evidence.add(new SeleniumEvidence("fail message", selenium.captureScreenshotToString()));}}} e em um nova linha o seguinte codigo {{{exString = e.fillInStackTrace().getMessage();}}}
+     * coloque dentro do bloco {{{finally}}} o seguinte codigo: {{{GenerateEvidenceReport evidenceReport.generatePDFEvidence(evidence, exString);}}}     
 
-*Bellow a template class using the selenium-java-evidence:*
+*Abaixo um exemplo de classe usando a API*	 
 
 {{{
 import com.googlecode.seleniumjavaevidence.report.GenerateEvidenceReport;
@@ -94,8 +97,8 @@ public class TestExample extends junit.framework.TestCase {
 }
 }}}
 
-=== Pay attention ===
-   * You must have the selenium libraries in in your classpath
-   * You must have the _report_ folder in the root folder of the application
-   * You must have the _init.properties_ file in the root folder of the application
-   * If you'll not use images, put null value in the image properties
+=== Nao esqueca ===
+   * Voce deve ter a api no classpath
+   * Voce precisa ter o diretorio _report_ na raiz do diretorio da aplicacao
+   * Voce precisa ter o arquivo _init.properties_ na raiz do diretorio da aplicacao
+   * Se voce nao for utilizar imagens no relatorio, coloque o valor como _null_ caso contrario insira o caminho das imagens utilizando a pasta da aplicacao como inicio

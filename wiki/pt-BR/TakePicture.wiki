@@ -1,45 +1,43 @@
-#summary Different ways to take a screenshot.
+#summary Diferentes metodos de capturar a imagem da tela.
 
-= Introduction =
+<wiki:toc max_depth="4" />
 
-When we take a picture with Selenium, there are basically two ways to do that.
-It'll influence how the picture appears in the evidence report.
-This mini-framework uses the capture screenshot to return one string in [http://www.docjar.com/docs/api/sun/misc/BASE64Decoder.html Base64]
-In the descriptions above, I'll use {{{selenium}}} as a new Selenium instance
+= Introducao =
+
+Existem, basicamente, duas maneiras de capturar uma imagem com o Selenium.
+Isso ira influeciar em como a imagem sera apresentada no relatorio de evidencia.
+Esta API utiliza os metodos de captura de imagem que retornam uma {{{string}}}} em [http://www.docjar.com/docs/api/sun/misc/BASE64Decoder.html Base64]
+Na descricao abaixo, iremos utilizar o objeto {{{selenium}}} como uma instancia do {{{DefaultSelenium}}}
 
 
-
-== Capture the screen ==
-To capture a screenshot to show us the screen we'll use the command bellow:
+== Capturando a imagem da tela ==
+Para capturar a imagem da tela (desktop) utilize o comando abaixo:
 {{{
 selenium.captureScreenshotToString();
 }}}
 
-The image will appears as:
+A imagem aparecera assim:
 http://lh5.ggpht.com/_E8k4Yrs3PtA/TIl6GC4PTXI/AAAAAAAAApo/4TDPGZ50ZUA/s800/selenium-screen-desktop.png
 
-This is a good strategy if you wanna see the desktop image, but the principal (browser) can not be displayed.
-Note that image refers to the entire desktop, and the window in the selenium application not complete appears because the browser were not maximized.
+Esta e a melhor estrategia se voce deseja capturar uma imagem da tela, mas o principal (imagem do browser) pode nao aparecer.
+Note que a imagem capturar e de todo o desktop e a janela do browser nao aparece por completo porque o browser nao esta maximizado.
 
 
-
-== Capture the entire page ==
-To capture the image content of the browser we'll use the command bellow:
+== Capturando a imagem do browser ==
+Para capturar a imagem do browser, utilize o comando abaixo:
 
 {{{
 selenium.captureEntirePageScreenShotToString();
 }}}
 
-This will show the image content of the browser even through it's minimized, different of the strategy above, which will display the browser image content if the browser is maximized.
+Isso ira apresentar a imagem do conteudo do browser (pagina web) mesmo se o browser estiver minimizado, diferente da estrategia acima, que apresenta a imagem do browser somente se ele estiver maximizado.
 
-The image will appears as:
-
+A imagem aparecera assim:
 http://lh4.ggpht.com/_E8k4Yrs3PtA/TIl6GlBYajI/AAAAAAAAAps/IqNg2ALSclo/s640/selenium-screen-entire-page.png
 
+Nesta caso, o conteudo da pagina apareceram em qualquer estado do browser(minimizado, maximizado ou redimensionado)
 
-In this case, the entire page appears even if the browser is maximized, minimized or any state
-
-=== Note ===
-If you use Internet Explorer, you must install [http://snapsie.sourceforge.net/ SnapsIE] to capture entire page screenshot.
-To learn how to install this COM object, see the webpage [http://snapsie.sourceforge.net/]
+=== Nota ===
+Se voce utiliza o browser Internet Explorer, voce deve instalar o [http://snapsie.sourceforge.net/ SnapsIE] caso queria capturar a imagem do conteudo do browser.
+Para saber como instalar o SnapsIE visite: [http://snapsie.sourceforge.net/]
  

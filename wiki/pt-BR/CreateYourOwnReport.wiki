@@ -1,5 +1,7 @@
 #summary Esta pagina apresenta como criar o seu proprio relatorio com esta API.
 
+<wiki:toc max_depth="4" />
+
 = Introducao =
 Voce pode criar o seu proprio relatorio atraves do [http://jasperforge.org/projects/ireport iReport] e/ou do [http://jasperforge.org/projects/jasperreports JasperReports].
 
