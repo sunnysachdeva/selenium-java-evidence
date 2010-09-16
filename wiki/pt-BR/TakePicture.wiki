@@ -22,7 +22,7 @@ http://lh5.ggpht.com/_E8k4Yrs3PtA/TIl6GC4PTXI/AAAAAAAAApo/4TDPGZ50ZUA/s800/selen
 Esta e a melhor estrategia se voce deseja capturar uma imagem da tela, mas o principal (imagem do browser) pode nao aparecer.
 Note que a imagem capturar e de todo o desktop e a janela do browser nao aparece por completo porque o browser nao esta maximizado.
 
-Um exemplo do relatorio de evidencia pode ser visualizado em: http://selenium-java-evidence.googlecode.com/files/TestlinkEvidence-desktop.pdf
+Um exemplo do relatorio de evidencia pode ser visualizado em: http://selenium-java-evidence.googlecode.com/files/ExampleEvidence-desktop.pdf
 
 == Capturando a imagem do browser ==
 Para capturar a imagem do browser, utilize o comando abaixo:
@@ -38,7 +38,7 @@ http://lh4.ggpht.com/_E8k4Yrs3PtA/TIl6GlBYajI/AAAAAAAAAps/IqNg2ALSclo/s640/selen
 
 Nesta caso, o conteudo da pagina apareceram em qualquer estado do browser(minimizado, maximizado ou redimensionado)
 
-Um exemplo do relatorio de evidencia pode ser visualizado em: http://selenium-java-evidence.googlecode.com/files/TestlinkEvidence-entire.pdf
+Um exemplo do relatorio de evidencia pode ser visualizado em: http://selenium-java-evidence.googlecode.com/files/ExampleEvidence-entire.pdf
 
 === Nota ===
 Se voce utiliza o browser Internet Explorer, voce deve instalar o [http://snapsie.sourceforge.net/ SnapsIE] caso queria capturar a imagem do conteudo do browser.
