@@ -32,11 +32,9 @@ public class GenerateEvidenceReport {
      * @param exception exception text that are throwing by Java
      * @throws IOException if occurs any problem with the directory
      */
-    public static void generatePDFEvidence(List<SeleniumEvidence> list, String reportName, String exception) throws IOException {
+    public static void generatePDFEvidence(List<SeleniumEvidence> list, String reportName, String tester, String project, String exception) throws IOException {
         List<SeleniumEvidence> data = list;
         Properties properties = SeleniumEvidenceUtils.loadProperties();
-        String project = properties.getProperty("label.projetc");
-        String tester = properties.getProperty("label.tester");
         String evidenceDir = System.getProperty("user.dir") + System.getProperty("file.separator") + properties.getProperty("evidence.dir") + System.getProperty("file.separator");
         
         createDirToEvidence(evidenceDir);
