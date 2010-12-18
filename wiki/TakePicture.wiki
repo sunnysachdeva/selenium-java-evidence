@@ -10,11 +10,15 @@ This library uses the capture screenshot by Selenium to return a string as [http
 In the descriptions above, I'll use {{{selenium}}} as a new Selenium instance
 
 
-
 == Capture the screen ==
-Using the following code:
+Using the following code with Selenium 1:
 {{{
 selenium.captureScreenshotToString();
+}}}
+
+Using the following code with Selenium 2:
+{{{
+((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64)
 }}}
 
 The image will appears as:
@@ -26,9 +30,14 @@ Note that image refers to the entire desktop, and the window in the selenium app
 See the report example: http://selenium-java-evidence.googlecode.com/files/ExampleEvidence-desktop.pdf
 
 == Capture the entire page ==
-Using the following code:
+Using the following code with Selenium 1:
 {{{
 selenium.captureEntirePageScreenShotToString();
+}}}
+
+Using the following code with Selenium 2:
+{{{
+((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64)
 }}}
 
 The image will appears as:
