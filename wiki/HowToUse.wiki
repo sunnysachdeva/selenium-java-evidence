@@ -96,6 +96,12 @@ public class TestExample extends junit.framework.TestCase {
 }
 }}}
 
+== Note about Selenium 2 ==
+If you're using Selenium 2 (WebDriver), do it:
+   * find the line  {{{evidence.add(new SeleniumEvidence("get evidence from here", selenium.captureScreenshotToString()));}}}
+   * replace {{{selenium.captureScreenshotToString()}} to {{{((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64)}}}
+
+
 === Pay attention ===
    * You must have the selenium libraries in in your classpath
    * You must have the _report_ folder in the root folder of the application
