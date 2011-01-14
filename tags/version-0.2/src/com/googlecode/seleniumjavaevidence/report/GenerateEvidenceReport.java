@@ -47,25 +47,39 @@ public class GenerateEvidenceReport {
             BufferedImage imageCompany;
             BufferedImage imageClient;
 
-            if (companyImage.equals("null")) {
+            if (companyImage == null || companyImage.equals("null")) {
                 imageCompany = null;
             } else {
                 imageCompany = ImageIO.read(new File(companyImage));
             }
 
-            if (customerImage.equals("null")) {
+            if (customerImage == null || customerImage.equals("null")) {
                 imageClient = null;
             } else {
                 imageClient = ImageIO.read(new File(customerImage));
             }
 
-            //BufferedImage imageCompany = ImageIO.read(new File(properties.getProperty("image.company.path")));
-            //BufferedImage imageClient = ImageIO.read(new File(properties.getProperty("image.customer.path")));
+            if (reportName == null) {
+                reportName = "";
+            }
+
+            if (tester == null) {
+                tester = "";
+            }
+
+            if (project == null) {
+                project = "";
+            }
+
+            if (exception == null) {
+                exception = "";
+            }
 
             Map parameters = new HashMap();
             if (exception != null) {
                 parameters.put("SEL_EXCEPTION", exception);
             }
+            
             parameters.put("SEL_COMPANY_LOGO", imageCompany);
             parameters.put("SEL_CUSTOMER_LOGO", imageClient);
             parameters.put("SEL_PROJECT", project);
